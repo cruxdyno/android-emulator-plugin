@@ -55,7 +55,7 @@ public class AndroidEmulatorContext {
 		adbPort = ports[1];
 		adbServerPort = ports[2];
 
-		serial = "emulator-" + userPort;
+		serial = "localhost:" + adbPort;
 	}
 
 	public void cleanUp() {

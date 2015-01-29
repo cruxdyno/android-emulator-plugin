@@ -375,7 +375,7 @@ public class AndroidEmulator extends BuildWrapper implements Serializable {
         boolean ignoreProcess = !launcher.isUnix() && androidSdk.getSdkToolsVersion() >= 12;
 
         // Notify adb of our existence
-        int result = emu.getToolProcStarter(Tool.ADB, "connect " + emu.serial()).join();
+        int result = emu.getToolProcStarter(Tool.ADB, "connect " + emu.serial()).stdout(logger).join()
         if (result != 0) { // adb currently only ever returns 0!
             log(logger, Messages.CANNOT_CONNECT_TO_EMULATOR());
             build.setResult(Result.NOT_BUILT);
